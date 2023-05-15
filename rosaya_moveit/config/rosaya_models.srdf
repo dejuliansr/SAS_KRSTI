@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="rosaya_models">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="kanan">
+        <link name="R_Link"/>
+        <link name="R_Link1"/>
+        <link name="R_Link2"/>
+        <link name="R_Link3"/>
+        <link name="R_Link4"/>
+        <link name="R_Link5"/>
+        <joint name="Joint4"/>
+        <joint name="Joint6"/>
+        <joint name="Joint8"/>
+        <joint name="Joint10"/>
+        <joint name="Joint12"/>
+        <joint name="Joint14"/>
+    </group>
+    <group name="kiri">
+        <link name="L_Link"/>
+        <link name="L_Link1"/>
+        <link name="L_Link2"/>
+        <link name="L_Link3"/>
+        <link name="L_Link4"/>
+        <link name="L_Link5"/>
+        <joint name="Joint3"/>
+        <joint name="Joint5"/>
+        <joint name="Joint7"/>
+        <joint name="Joint9"/>
+        <joint name="Joint11"/>
+        <joint name="Joint13"/>
+    </group>
+    <group name="badan">
+        <link name="Link1"/>
+        <link name="Link2"/>
+        <link name="Link3"/>
+        <joint name="base_link"/>
+        <joint name="Joint1"/>
+        <joint name="Joint2"/>
+        <group name="kanan"/>
+        <group name="kiri"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="berdiri" group="kanan">
+        <joint name="Joint10" value="0.45"/>
+        <joint name="Joint12" value="0"/>
+        <joint name="Joint14" value="0.24"/>
+        <joint name="Joint4" value="0"/>
+        <joint name="Joint6" value="0"/>
+        <joint name="Joint8" value="-0.21"/>
+    </group_state>
+    <group_state name="berdiri" group="kiri">
+        <joint name="Joint11" value="-0.24"/>
+        <joint name="Joint13" value="0"/>
+        <joint name="Joint3" value="0"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.21"/>
+        <joint name="Joint9" value="-0.45"/>
+    </group_state>
+    <group_state name="duduk" group="kiri">
+        <joint name="Joint11" value="-0.99"/>
+        <joint name="Joint13" value="0"/>
+        <joint name="Joint3" value="0"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.79"/>
+        <joint name="Joint9" value="-1.87"/>
+    </group_state>
+
+    <group_state name="berdiri1" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="0"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0"/>
+        <joint name="Joint6" value="0"/>
+        <joint name="Joint8" value="-0.21"/>
+        <joint name="Joint10" value="0.45"/>
+        <joint name="Joint12" value="0.24"/>
+        <joint name="Joint14" value="0"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.21"/>
+        <joint name="Joint9" value="-0.45"/>
+        <joint name="Joint11" value="-0.24"/>
+        <joint name="Joint13" value="0"/>
+    </group_state>
+
+    <group_state name="berdiri1" group="kanan">
+        <!-- kanan -->
+        <joint name="Joint4" value="0"/>
+        <joint name="Joint6" value="0"/>
+        <joint name="Joint8" value="-0.21"/>
+        <joint name="Joint10" value="0.45"/>
+        <joint name="Joint12" value="0.24"/>
+        <joint name="Joint14" value="0"/>
+    </group_state>
+
+    <group_state name="berdiri1" group="kiri">
+    <!-- kiri -->
+        <joint name="Joint3" value="0"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.21"/>
+        <joint name="Joint9" value="-0.45"/>
+        <joint name="Joint11" value="-0.24"/>
+        <joint name="Joint13" value="0"/>
+    </group_state>
+
+    <group_state name="duduk fix" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="0"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.56"/>
+        <joint name="Joint9" value="-1.96"/>
+        <joint name="Joint11" value="-1.40"/>
+        <joint name="Joint13" value="0"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0"/>
+        <joint name="Joint6" value="0"/>
+        <joint name="Joint8" value="-0.56"/>
+        <joint name="Joint10" value="1.96"/>
+        <joint name="Joint12" value="1.40"/>
+        <joint name="Joint14" value="0"/>
+    </group_state>
+
+    <group_state name="berdiri fix" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="0"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="-0"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.28"/>
+        <joint name="Joint9" value="-0.98"/>
+        <joint name="Joint11" value="-0.7"/>
+        <joint name="Joint13" value="0"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0"/>
+        <joint name="Joint6" value="0"/>
+        <joint name="Joint8" value="-0.28"/>
+        <joint name="Joint10" value="0.98"/>
+        <joint name="Joint12" value="0.7"/>
+        <joint name="Joint14" value="0"/>
+    </group_state>
+
+    <group_state name="siap kanan J1" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="0"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0"/>
+        <joint name="Joint5" value="0.09"/>
+        <joint name="Joint7" value="0.28"/>
+        <joint name="Joint9" value="-0.96"/>
+        <joint name="Joint11" value="-0.7"/>
+        <joint name="Joint13" value="0.23"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0"/>
+        <joint name="Joint6" value="0.12"/>
+        <joint name="Joint8" value="-0.24"/>
+        <joint name="Joint10" value="0.91"/>
+        <joint name="Joint12" value="0.65"/>
+        <joint name="Joint14" value="0.17"/>
+    </group_state>
+
+    <group_state name="kanan naik J1" group="kanan">
+    <!-- kanan -->
+        <joint name="Joint4" value="0"/>
+        <joint name="Joint6" value="0.24"/>
+        <joint name="Joint8" value="-0.52"/>
+        <joint name="Joint10" value="1.64"/>
+        <joint name="Joint12" value="1.1"/>
+        <joint name="Joint14" value="0.3"/>
+    </group_state>
+
+    <group_state name="kanan maju turun J1" group="kanan">
+    <!-- kanan -->
+        <joint name="Joint4" value="0.35"/>
+        <joint name="Joint6" value="0.23"/>
+        <joint name="Joint8" value="-0.45"/>
+        <joint name="Joint10" value="1"/>
+        <joint name="Joint12" value="0.52"/>
+        <joint name="Joint14" value="0.24"/>
+    </group_state>
+
+    <group_state name="kanan maju J1" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="-0.35"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0.35"/>
+        <joint name="Joint5" value="0.05"/>
+        <joint name="Joint7" value="0.21"/>
+        <joint name="Joint9" value="-0.96"/>
+        <joint name="Joint11" value="-0.7"/>
+        <joint name="Joint13" value="0.27"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0.35"/>
+        <joint name="Joint6" value="0.24"/>
+        <joint name="Joint8" value="-0.73"/>
+        <joint name="Joint10" value="1.66"/>
+        <joint name="Joint12" value="0.89"/>
+        <joint name="Joint14" value="0.16"/>
+    </group_state>
+
+    <group_state name="kanan turun J1" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="-0.35"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0.35"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.33"/>
+        <joint name="Joint9" value="-1.31"/>
+        <joint name="Joint11" value="-0.9"/>
+        <joint name="Joint13" value="0"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0.35"/>
+        <joint name="Joint6" value="0"/>
+        <joint name="Joint8" value="-0.63"/>
+        <joint name="Joint10" value="1.42"/>
+        <joint name="Joint12" value="0.75"/>
+        <joint name="Joint14" value="0"/>
+    </group_state>
+
+    <group_state name="siap kiri J2" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="-0.35"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0.35"/>
+        <joint name="Joint5" value="-0.21"/>
+        <joint name="Joint7" value="0.17"/>
+        <joint name="Joint9" value="-0.63"/>
+        <joint name="Joint11" value="-0.42"/>
+        <joint name="Joint13" value="-0.26"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0.35"/>
+        <joint name="Joint6" value="-0.09"/>
+        <joint name="Joint8" value="-0.38"/>
+        <joint name="Joint10" value="0.82"/>
+        <joint name="Joint12" value="0.47"/>
+        <joint name="Joint14" value="-0.21"/>
+    </group_state>
+
+    <group_state name="kiri naik J2" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="0"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0"/>
+        <joint name="Joint5" value="-0.24"/>
+        <joint name="Joint7" value="0.58"/>
+        <joint name="Joint9" value="-1.38"/>
+        <joint name="Joint11" value="-0.77"/>
+        <joint name="Joint13" value="-0.24"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0"/>
+        <joint name="Joint6" value="-0.09"/>
+        <joint name="Joint8" value="-0.35"/>
+        <joint name="Joint10" value="0.80"/>
+        <joint name="Joint12" value="0.51"/>
+        <joint name="Joint14" value="-0.23"/>
+    </group_state>
+
+    <group_state name="kiri maju J2" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="0.35"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="-0.35"/>
+        <joint name="Joint5" value="-0.24"/>
+        <joint name="Joint7" value="0.73"/>
+        <joint name="Joint9" value="-1.66"/>
+        <joint name="Joint11" value="-0.89"/>
+        <joint name="Joint13" value="-0.16"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="-0.35"/>
+        <joint name="Joint6" value="-0.05"/>
+        <joint name="Joint8" value="-0.21"/>
+        <joint name="Joint10" value="0.96"/>
+        <joint name="Joint12" value="0.7"/>
+        <joint name="Joint14" value="-0.27"/>
+    </group_state>
+
+    <group_state name="kiri turun J2" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="0.35"/>
+    <!-- kiri-->
+        <joint name="Joint3" value="-0.35"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.63"/>
+        <joint name="Joint9" value="-1.42"/>
+        <joint name="Joint11" value="-0.75"/>
+        <joint name="Joint13" value="0"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="-0.35"/>
+        <joint name="Joint6" value="-0"/>
+        <joint name="Joint8" value="-0.33"/>
+        <joint name="Joint10" value="1.31"/>
+        <joint name="Joint12" value="0.9"/>
+        <joint name="Joint14" value="0"/>
+    </group_state>
+
+    <group_state name="kiri duduk J2" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="0.35"/>
+    <!-- kiri-->
+        <joint name="Joint3" value="-0.35"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.87"/>
+        <joint name="Joint9" value="-2"/>
+        <joint name="Joint11" value="-1"/>
+        <joint name="Joint13" value="0"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="-0.35"/>
+        <joint name="Joint6" value="0"/>
+        <joint name="Joint8" value="-0.51"/>
+        <joint name="Joint10" value="1.89"/>
+        <joint name="Joint12" value="1.31"/>
+        <joint name="Joint14" value="0"/>
+    </group_state>
+
+    <group_state name="kiri maju turun J2" group="kiri">
+    <!-- kiri-->
+        <joint name="Joint3" value="-0.35"/>
+        <joint name="Joint5" value="-0.23"/>
+        <joint name="Joint7" value="0.4"/>
+        <joint name="Joint9" value="-0.9"/>
+        <joint name="Joint11" value="-0.47"/>
+        <joint name="Joint13" value="-0.23"/>
+    </group_state>
+
+    <group_state name="siap kanan J3" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="0.35"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="-0.35"/>
+        <joint name="Joint5" value="0.09"/>
+        <joint name="Joint7" value="0.38"/>
+        <joint name="Joint9" value="-0.82"/>
+        <joint name="Joint11" value="-0.47"/>
+        <joint name="Joint13" value="0.21"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="-0.35"/>
+        <joint name="Joint6" value="0.21"/>
+        <joint name="Joint8" value="-0.19"/>
+        <joint name="Joint10" value="0.66"/>
+        <joint name="Joint12" value="0.49"/>
+        <joint name="Joint14" value="0.3"/>
+    </group_state>
+
+    <group_state name="kanan naik J3" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="0"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0"/>
+        <joint name="Joint5" value="0.09"/>
+        <joint name="Joint7" value="0.35"/>
+        <joint name="Joint9" value="-0.80"/>
+        <joint name="Joint11" value="-0.51"/>
+        <joint name="Joint13" value="0.23"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0"/>
+        <joint name="Joint6" value="0.24"/>
+        <joint name="Joint8" value="-0.58"/>
+        <joint name="Joint10" value="1.38"/>
+        <joint name="Joint12" value="0.77"/>
+        <joint name="Joint14" value="0.24"/>
+    </group_state>
+
+    <group_state name="kanan maju J3" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="-0.35"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0.35"/>
+        <joint name="Joint5" value="0.05"/>
+        <joint name="Joint7" value="0.21"/>
+        <joint name="Joint9" value="-0.96"/>
+        <joint name="Joint11" value="-0.7"/>
+        <joint name="Joint13" value="0.27"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0.35"/>
+        <joint name="Joint6" value="0.24"/>
+        <joint name="Joint8" value="-0.73"/>
+        <joint name="Joint10" value="1.66"/>
+        <joint name="Joint12" value="0.89"/>
+        <joint name="Joint14" value="0.16"/>
+    </group_state>
+
+    <group_state name="kanan turun J3" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="-0.35"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0.35"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.33"/>
+        <joint name="Joint9" value="-1.31"/>
+        <joint name="Joint11" value="-0.9"/>
+        <joint name="Joint13" value="0"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0.35"/>
+        <joint name="Joint6" value="0"/>
+        <joint name="Joint8" value="-0.63"/>
+        <joint name="Joint10" value="1.42"/>
+        <joint name="Joint12" value="0.75"/>
+        <joint name="Joint14" value="0"/>
+    </group_state>
+
+    <group_state name="kanan duduk J3" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="-0.35"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0.35"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.51"/>
+        <joint name="Joint9" value="-1.89"/>
+        <joint name="Joint11" value="-1.31"/>
+        <joint name="Joint13" value="0"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0.35"/>
+        <joint name="Joint6" value="0"/>
+        <joint name="Joint8" value="-0.87"/>
+        <joint name="Joint10" value="2"/>
+        <joint name="Joint12" value="1"/>
+        <joint name="Joint14" value="0"/>
+    </group_state>
+
+    <group_state name="kanan maju turun J3" group="kanan">
+    <!-- kanan -->
+        <joint name="Joint4" value="0.35"/>
+        <joint name="Joint6" value="0.23"/>
+        <joint name="Joint8" value="-0.45"/>
+        <joint name="Joint10" value="1"/>
+        <joint name="Joint12" value="0.52"/>
+        <joint name="Joint14" value="0.24"/>
+    </group_state>
+
+    <group_state name="serong kanan" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="-0.35"/>
+    <!-- kiri-->
+        <joint name="Joint3" value="-0.35"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.87"/>
+        <joint name="Joint9" value="-2"/>
+        <joint name="Joint11" value="-1"/>
+        <joint name="Joint13" value="0"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="-0.35"/>
+        <joint name="Joint6" value="0"/>
+        <joint name="Joint8" value="-0.51"/>
+        <joint name="Joint10" value="1.89"/>
+        <joint name="Joint12" value="1.31"/>
+        <joint name="Joint14" value="0"/>
+    </group_state>
+
+    <group_state name="serong kiri" group="badan">
+        <joint name="Joint1" value="0"/>
+        <joint name="Joint2" value="0.35"/>
+    <!-- kiri -->
+        <joint name="Joint3" value="0.35"/>
+        <joint name="Joint5" value="0"/>
+        <joint name="Joint7" value="0.51"/>
+        <joint name="Joint9" value="-1.89"/>
+        <joint name="Joint11" value="-1.31"/>
+        <joint name="Joint13" value="0"/>
+    <!-- kanan -->
+        <joint name="Joint4" value="0.35"/>
+        <joint name="Joint6" value="0"/>
+        <joint name="Joint8" value="-0.87"/>
+        <joint name="Joint10" value="2"/>
+        <joint name="Joint12" value="1"/>
+        <joint name="Joint14" value="0"/>
+    </group_state>
+
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="base_link" type="fixed" parent_frame="world" child_link="Link1"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="L_Link" link2="L_Link1" reason="Adjacent"/>
+    <disable_collisions link1="L_Link" link2="Link2" reason="Never"/>
+    <disable_collisions link1="L_Link" link2="Link3" reason="Adjacent"/>
+    <disable_collisions link1="L_Link" link2="R_Link" reason="Never"/>
+    <disable_collisions link1="L_Link1" link2="L_Link2" reason="Adjacent"/>
+    <disable_collisions link1="L_Link1" link2="Link2" reason="Never"/>
+    <disable_collisions link1="L_Link2" link2="L_Link3" reason="Adjacent"/>
+    <disable_collisions link1="L_Link3" link2="L_Link4" reason="Adjacent"/>
+    <disable_collisions link1="L_Link4" link2="L_Link5" reason="Adjacent"/>
+    <disable_collisions link1="Link1" link2="Link2" reason="Adjacent"/>
+    <disable_collisions link1="Link2" link2="Link3" reason="Adjacent"/>
+    <disable_collisions link1="Link2" link2="R_Link" reason="Never"/>
+    <disable_collisions link1="Link2" link2="R_Link1" reason="Never"/>
+    <disable_collisions link1="Link3" link2="R_Link" reason="Adjacent"/>
+    <disable_collisions link1="R_Link" link2="R_Link1" reason="Adjacent"/>
+    <disable_collisions link1="R_Link1" link2="R_Link2" reason="Adjacent"/>
+    <disable_collisions link1="R_Link2" link2="R_Link3" reason="Adjacent"/>
+    <disable_collisions link1="R_Link3" link2="R_Link4" reason="Adjacent"/>
+    <disable_collisions link1="R_Link4" link2="R_Link5" reason="Adjacent"/>
+</robot>
