@@ -182,11 +182,11 @@
     <group_state name="kanan maju turun J1" group="kanan">
     <!-- kanan -->
         <joint name="Joint4" value="0.35"/>
-        <joint name="Joint6" value="0.23"/>
-        <joint name="Joint8" value="-0.45"/>
-        <joint name="Joint10" value="1"/>
-        <joint name="Joint12" value="0.52"/>
-        <joint name="Joint14" value="0.24"/>
+        <joint name="Joint6" value="0.21"/>
+        <joint name="Joint8" value="-0.33"/>
+        <joint name="Joint10" value="0.77"/>
+        <joint name="Joint12" value="0.4"/>
+        <joint name="Joint14" value="0.33"/>
     </group_state>
 
     <group_state name="kanan maju J1" group="badan">
@@ -233,17 +233,17 @@
     <!-- kiri -->
         <joint name="Joint3" value="0.35"/>
         <joint name="Joint5" value="-0.21"/>
-        <joint name="Joint7" value="0.17"/>
-        <joint name="Joint9" value="-0.63"/>
-        <joint name="Joint11" value="-0.42"/>
-        <joint name="Joint13" value="-0.26"/>
+        <joint name="Joint7" value="0.14"/>
+        <joint name="Joint9" value="-0.58"/>
+        <joint name="Joint11" value="-0.33"/>
+        <joint name="Joint13" value="-0.33"/>
     <!-- kanan -->
         <joint name="Joint4" value="0.35"/>
         <joint name="Joint6" value="-0.09"/>
         <joint name="Joint8" value="-0.38"/>
         <joint name="Joint10" value="0.82"/>
         <joint name="Joint12" value="0.47"/>
-        <joint name="Joint14" value="-0.21"/>
+        <joint name="Joint14" value="-0.31"/>
     </group_state>
 
     <group_state name="kiri naik J2" group="badan">
@@ -281,7 +281,7 @@
         <joint name="Joint8" value="-0.21"/>
         <joint name="Joint10" value="0.96"/>
         <joint name="Joint12" value="0.7"/>
-        <joint name="Joint14" value="-0.27"/>
+        <joint name="Joint14" value="-0.31"/>
     </group_state>
 
     <group_state name="kiri turun J2" group="badan">
@@ -325,11 +325,11 @@
     <group_state name="kiri maju turun J2" group="kiri">
     <!-- kiri-->
         <joint name="Joint3" value="-0.35"/>
-        <joint name="Joint5" value="-0.23"/>
-        <joint name="Joint7" value="0.4"/>
-        <joint name="Joint9" value="-0.9"/>
-        <joint name="Joint11" value="-0.47"/>
-        <joint name="Joint13" value="-0.23"/>
+        <joint name="Joint5" value="-0.21"/>
+        <joint name="Joint7" value="0.28"/>
+        <joint name="Joint9" value="-0.65"/>
+        <joint name="Joint11" value="-0.33"/>
+        <joint name="Joint13" value="-0.38"/>
     </group_state>
 
     <group_state name="siap kanan J3" group="badan">
@@ -341,14 +341,14 @@
         <joint name="Joint7" value="0.38"/>
         <joint name="Joint9" value="-0.82"/>
         <joint name="Joint11" value="-0.47"/>
-        <joint name="Joint13" value="0.21"/>
+        <joint name="Joint13" value="0.31"/>
     <!-- kanan -->
         <joint name="Joint4" value="-0.35"/>
-        <joint name="Joint6" value="0.21"/>
-        <joint name="Joint8" value="-0.19"/>
-        <joint name="Joint10" value="0.66"/>
-        <joint name="Joint12" value="0.49"/>
-        <joint name="Joint14" value="0.3"/>
+        <joint name="Joint6" value="0.23"/>
+        <joint name="Joint8" value="-0.23"/>
+        <joint name="Joint10" value="0.77"/>
+        <joint name="Joint12" value="0.44"/>
+        <joint name="Joint14" value="0.33"/>
     </group_state>
 
     <group_state name="kanan naik J3" group="badan">
@@ -430,11 +430,11 @@
     <group_state name="kanan maju turun J3" group="kanan">
     <!-- kanan -->
         <joint name="Joint4" value="0.35"/>
-        <joint name="Joint6" value="0.23"/>
-        <joint name="Joint8" value="-0.45"/>
-        <joint name="Joint10" value="1"/>
-        <joint name="Joint12" value="0.52"/>
-        <joint name="Joint14" value="0.24"/>
+        <joint name="Joint6" value="0.21"/>
+        <joint name="Joint8" value="-0.33"/>
+        <joint name="Joint10" value="0.77"/>
+        <joint name="Joint12" value="0.4"/>
+        <joint name="Joint14" value="0.33"/>
     </group_state>
 
     <group_state name="serong kanan" group="badan">
