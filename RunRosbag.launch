@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="rosbag" type="play" name="playKRSTI" output="screen" args="--pause /home/simon/catkin_ws3/2023-05-03-15-49-54.bag"/>
+</launch>
